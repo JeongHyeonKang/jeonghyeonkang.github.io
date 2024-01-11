@@ -1,8 +1,8 @@
 /** @type {import("pliny/config").PlinyConfig } */
 const siteMetadata = {
-  title: '여구 블로그',
-  author: '여구',
-  headerTitle: 'YeoGoo Blog',
+  title: 'KangJeongHyeon 블로그',
+  author: '강정현',
+  headerTitle: 'KangJeongHyeon Blog',
   description: '',
   language: 'ko-kr',
   theme: 'system', // system, dark or light
@@ -11,8 +11,8 @@ const siteMetadata = {
   siteLogo: '/static/images/logo.png',
   socialBanner: '/static/images/twitter-card.png',
   mastodon: 'https://mastodon.social/@mastodonuser',
-  email: 'yeogandalf@gmail.com',
-  github: 'https://github.com/yjystyle',
+  email: 'kangjh0968@naver.com',
+  github: 'https://github.com/jeonghyeonkang',
   twitter: 'https://twitter.com/Twitter',
   facebook: 'https://facebook.com',
   youtube: 'https://youtube.com',
