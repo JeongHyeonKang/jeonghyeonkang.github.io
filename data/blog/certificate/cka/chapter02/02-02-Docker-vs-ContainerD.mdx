@@ -1,0 +1,45 @@
+---
+title: CKA-Chapter-02-02 Docker vs ContainerD
+date: '2024-01-22'
+tags: ['cka']
+draft: false
+---
+
+```
+02-02 Docker vs ContainerD
+```
+
+```
+CLI - ctr
+
+$ ctr
+$ ctr images pull docker.io/library/redis:alpine
+$ ctr run docker.io/library/redis:alpine redis
+
+CLI - nerdctl
+ : 암호화 된 컨테이너 이미지 작업
+   느린 이미지 풀링
+   P2P 이미지 배포
+   이미지 서명 및 확인
+ 
+$ docker ==> $ nerdctl
+$ docker run --name redis redis:alpine ==> $ nerdctl run --name redis redis:alpine
+$ docker run --name webserver -p 80:80 -d nginx ==> $ nerdctl run --name webserver -p 80:80 -d nginx
+
+
+CLI - crictl
+ : critl은 CRI 호환 컨테이너 런타임을 위한 CLI를 제공합니다.
+   별도로 설치됩니다.
+   컨테이너 실행 시간을 검사하고 디버그하는데 사용됩니다.
+   다양한 실행 시간에 걸쳐 작동합니다.
+   디버깅 용도로만 사용
+
+$ crictl
+$ crictl pull busybox
+$ crictl images
+$ crictl ps -a
+$ crictl exec -i -t abcde ls
+$ crictl logs abcde
+$ crictl pods
+
+```

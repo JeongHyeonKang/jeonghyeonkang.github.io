@@ -1,0 +1,29 @@
+---
+title: CKA-Chapter-02-01 Cluster Architecture
+date: '2024-01-22'
+tags: ['cka']
+draft: false
+---
+
+```
+02-01 Cluster Architecture
+```
+
+```
+ [Master]
+    .
+    .
+    .
+ ETC Cluster
+ Kube-apiserver
+ Kube Controller Manager
+ Kube-scheduler
+
+ [Worker Nodes]
+    .
+    .
+    .
+ Kubelet
+ Kube-proxy
+ Container Runtime Engine
+```
