@@ -1,0 +1,35 @@
+---
+title: CKA-Chapter-02-04 ETCD in Kubernetes
+date: '2024-01-23'
+tags: ['cka']
+draft: false
+---
+
+```
+02-04 ETCD in Kubernetes
+```
+
+```
+[Setup-Menual]
+클러스터를 처음부터 설정하는 경우 ETCD 바이너리를 직접 다운로드하여 배포합니다.
+바이너리를 설치하고 ETCD를 마스터 노드에 직접 서비스로 구성합니다.
+
+$ wget -q --https-only "https://github.com/etcd-io/etcd/releases/download/v3.3.11/etcd-v3.3.11-linux-amd64.tar.gz"
+```
+```
+[Setup-kubeadm]
+다음을 사용하여 클러스터를 설정하면 kubeadmkubeadm은 etcd 서버를 네임스페이스의 포드로 배포합니다 kube-system.
+$ kubectl get pods -n kube-system
+```
+```
+[ETCD 살펴보기]
+kubernetes에 저장된 모든 키를 나열하려면 아래 명령을 실행하십시오.
+$ kubectl exec etcd-master -n kube-system -- sh -c "ETCDCTL_API=3 etcdctl --cert=/etc/kubernetes/pki/etcd/server.crt --key=/etc/kubernetes/pki/etcd/server.key --cacert=/etc/kubernetes/pki/etcd/ca.crt get / --prefix --keys-only"
+
+Kubernetes는 특정 디렉터리 구조에 데이터를 저장합니다. 루트 디렉터리는 , , , , , 및 와 registry같은 다양한 kubernetes 구성이 있는 하위 디렉터리입니다 .minionsnodespodsreplicasetsdeploymentsrolessecretsOthers
+```
+```
+[HA 환경의 ETCD]
+고가용성 환경에서는 클러스터에 여러 개의 ETCD 인스턴스가 마스터 노드에 분산되어 있는 여러 개의 마스터 노드가 있습니다.
+구성 에서 올바른 매개변수를 설정하여 etcd 인스턴스가 서로를 인식하는지 확인하세요 etcd.service. --initial-clusteretcd 서비스의 다양한 인스턴스를 지정해야 하는 옵션입니다.
+```

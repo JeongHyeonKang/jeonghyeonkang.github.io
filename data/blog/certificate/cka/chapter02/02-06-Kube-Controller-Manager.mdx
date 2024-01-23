@@ -1,0 +1,26 @@
+---
+title: CKA-Chapter-02-06-Kube-Controller-Manager
+date: '2024-01-23'
+tags: ['cka']
+draft: false
+---
+
+```
+02-06-Kube-Controller-Manager
+```
+
+```
+Kube Controller Manager는 Kubernetes의 다양한 컨트롤러를 관리합니다.
+```
+```
+[노드 컨트롤러]
+노드 상태를 모니터링하고 애플리케이션 실행을 유지하는 데 필요한 조치를 취하는 일을 담당합니다.
+```
+```
+[노드 상태 조회]
+$ kubectl get nodes
+```
+```
+[kube-controller-manager 보기 - kubeadm]
+$ kubectl get pods -n kube-system
+```

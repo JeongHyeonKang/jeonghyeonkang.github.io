@@ -1,0 +1,43 @@
+---
+title: CKA-Chapter-02-11 Pods with YAML
+date: '2024-01-23'
+tags: ['cka']
+draft: false
+---
+
+```
+02-11 Pods with YAML
+```
+
+```
+[yaml 기본 구조]
+pod-definition.yml
+
+apiVersion: 
+kind:
+metadata:
+    name:
+    lables:
+        app:
+        type:
+spec:
+    containers:
+        - name:
+          image:
+```
+```
+[Pod 생성]
+$ kubectl create -f pod-definition.yml
+$ kubectl apply -f pod.yaml
+```
+![image](https://github.com/JeongHyeonKang/jeonghyeonkang.github.io/assets/102216558/b621c65f-6dba-451f-8fa6-1513479a2820)
+
+```
+[Pod 목록 확인]
+$ kubectl get pods
+```
+
+```
+[Pod 자세한 정보]
+$ kubectl describe pod myapp-pod
+```
